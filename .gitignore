@@ -1,0 +1,10 @@
+__pycache__/
+db.sqlite3
+manage.py
+bookstore/wsgi.py
+bookstore/local.py
+
+*.pyc
+### PyCharm ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+.idea/

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page %}
+  <h1 style="margin-bottom: 30px">My Buyings</h1>
+  <div class="panel panel-default">
+    <table class="table table-bordered table-striped">
+      <thead class="bg-success">
+        <tr>
+          <th></th>
+          <th>Book Title</th>
+          <th>Author</th>
+          <th>Price ($)</th>
+          <th>Date</th>
+          <th>action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for purchase in purchases %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td><a href="{% url 'book_details' purchase.book.id %}">{{ purchase.book.title }}</a></td>
+            <td><a href="{% url 'profile' purchase.book.user.username %}">{{ purchase.book.user.username }}</a></td>
+            <td>{{ purchase.book.price }}</td>
+            <td>{{ purchase.time }}</td>
+            <td><a href="{% url 'pdf_view' purchase.book.id %}" class="btn btn-primary">view pdf</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
